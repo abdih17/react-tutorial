@@ -22,7 +22,7 @@ module.exports = {
     },
     rules: {
       test: '/\.scss$/',
-      loader: ExtractPlugin.extract(['sass-loader', 'css-loader'])
+      loader: ExtractPlugin.extract([ 'css-loader', 'sass-loader'])
     }
   }
 }
