@@ -4,29 +4,25 @@ const HtmlPlugin = require('html-webpack-plugin');
 const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  //you always need entry, output, plugins, and loaders/module
-  entry: `${__dirname}/src/main.js`,
-
+  entry: '${__dirname}/src/main.js',
   output: {
     filename: 'bundle-[hash].js',
-    path: `${__dirname}/build`,
+    path: '${__dirname}/build',
     publicPath: '/'
   },
-  plugins: [
-    new HtmlPlugin({ template: `${__dirname}/src/index.html` }),
+  plugin:{
+    new HtmlPlugin({ template: '${__dirname}/src/index.html'}),
     new ExtractPlugin('bundle-[hash].css')
-  ],
+  },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractPlugin.extract(['css-loader', 'sass-loader'])
-      }
-    ]
+    rules: {
+      test: '/\.js$/',
+      exclude: '/node_modules/',
+      loader: 'babel-loader'
+    },
+    rules: {
+      test: '/\.scss$/',
+      loader: ExtractPlugin.extract(['sass-loader', 'css-loader'])
+    }
   }
-};
+}
