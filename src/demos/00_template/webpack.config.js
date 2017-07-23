@@ -4,6 +4,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  //you always need entry, output, plugins, and loaders/module
   entry: `${__dirname}/src/main.js`,
 
   output: {
